@@ -59,7 +59,7 @@ sub getUnion {
 # $param  配列 X, 配列 Y
 # $return 積集合 (X∩Y)
 # *******************************************************************
-sub getProductSet {
+sub getIntersectSet {
 	my ($array1, $array2) = @_;
 	my %cnt = ();
 	return grep {++$cnt{$_} == 2} (@{$array1}, @{$array2});
@@ -73,9 +73,7 @@ sub getProductSet {
 # *******************************************************************
 sub getDifferenceSet {
 	my ($array1, $array2) = @_;
-	my %cnt = ();
-	map { $cnt{$_}-- } @{$array2};
-	return grep {++$cnt{$_} == 1} @{$array1};
+	return grep { my $t=$_; ! grep /^$t$/, @{$array2}; } @{$array1};
 }
 
 # おまじない
