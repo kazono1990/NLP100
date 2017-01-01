@@ -3,19 +3,22 @@
 
 import random
 
-str = "I couldn't believe that I could actually understand what I was reading : the phenomenal power of the human mind ."
-words = str.split()
-shuffle = []
-
-for word in words:
+def shuffle(word):
     if len(word) < 5:
-        pass
-    else:
-        char_list = list(word)
-        mid_list = char_list[1:-1]
-        random.shuffle(mid_list)
-        word = word[0] + "".join(mid_list) + word[-1]
-    shuffle.append(word)
+        return word
 
-ans = " ".join(shuffle)
-print (ans)
+    middle = list(word[1:-1])
+    while middle == list(word[1:-1]):
+        random.shuffle(middle)
+    return word[0] + "".join(middle) + word[-1]
+
+
+def typoglycemia(str):
+    list = []
+    for word in str.split():
+        list.append(shuffle(word))
+    return " ".join(list)
+
+
+str = "I couldn't believe that I could actually understand what I was reading : the phenomenal power of the human mind ."
+print(typoglycemia(str))
