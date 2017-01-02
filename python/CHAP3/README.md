@@ -1,4 +1,4 @@
-# CHAP1 の内容
+# CHAP3 の内容
 今回のプログラムでは http://www.cl.ecei.tohoku.ac.jp/nlp100/ からダウンロードした **jawiki-country.json.gz** を解凍したファイルを入力として使用します。
 
     gunzip jawiki-country.json.gz
